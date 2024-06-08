@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 from typing import Any
-from pymanga.models import Manga
+from pymanga.models.manga import Manga
 from pymanga.models.chapter import Chapter
 from pymanga.models.common import Response
+from pymanga.models.download_chapter_info import DownloadInfo
 
 
 class TestMangaModels:
@@ -24,6 +25,19 @@ class TestMangaModels:
         assert chapter.id == "176df286-1beb-47c4-81b9-aa8129a71cb5"
         assert chapter.type == "chapter"
         assert len(chapter.relationships) == 3
+
+    def test_download_chapter_info_model(self) -> None:
+        download_chapter_info_json: dict[str, Any] = json.loads(
+            Path("tests/samples/download_chapter_info.json").read_text()
+        )
+        download_chapter_info: DownloadInfo = DownloadInfo.model_validate(
+            download_chapter_info_json
+        )
+        assert download_chapter_info.result == "ok"
+        assert download_chapter_info.base_url == "https://uploads.mangadex.org"
+        assert download_chapter_info.chapter.hash == "3303dd03ac8d27452cce3f2a882e94b2"
+        assert len(download_chapter_info.chapter.data) == 6
+        assert len(download_chapter_info.chapter.data_saver) == 6
 
     def test_response_model_with_chapter(self) -> None:
         response_json: dict[str, Any] = json.loads(

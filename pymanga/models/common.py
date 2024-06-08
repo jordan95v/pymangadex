@@ -1,7 +1,7 @@
 from typing import Generic, TypeVar
 from pydantic import BaseModel
 
-from pymanga.models import Manga
+from pymanga.models.manga import Manga
 from pymanga.models.chapter import Chapter
 
 
