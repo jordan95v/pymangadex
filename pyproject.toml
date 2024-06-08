@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pymanga"
+version = "0.1.0"
+dependencies = [
+  "httpx",
+  "pydantic",
+  "typer",
+]
+requires-python = ">=3.10"
+authors = [
+  {name = "Jordan Dufresne", email = "jordan95v@noreply.github.com"}
+]
+maintainers = [
+  {name = "Jordan Dufresne", email = "jordan95v@noreply.github.com"}
+]
+description = "A manga downloader for mangadex"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["manga", "downloader", "mangadex"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+          
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "mypy",
+    "flake8",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "pytest-mock",
+]
+
+[project.urls]
+Documentation = "https://github.com/jordan95v/pymanga"
+Repository = "https://github.com/jordan95v/pymanga.git"
+"Bug Tracker" = "https://github.com/jordan95v/pymanga/issues"
+
+[tool.pytest.ini_options]
+addopts = "-vv --tb=short --cov=pymanga --cov-report=term-missing"
