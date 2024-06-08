@@ -46,3 +46,10 @@ Repository = "https://github.com/jordan95v/pymanga.git"
 
 [tool.pytest.ini_options]
 addopts = "-vv --tb=short --cov=pymanga --cov-report=term-missing"
+
+[tool.coverage.report]
+omit = [
+    "tests/*",
+    "pymanga/__main__.py",
+    "pymanga/__init__.py",
+]
