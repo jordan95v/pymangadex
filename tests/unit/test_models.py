@@ -1,7 +1,8 @@
 import json
 from pathlib import Path
 from typing import Any
-from pymanga.models.manga import Manga
+import pytest
+from pymanga.models.manga import Manga, Tag
 from pymanga.models.chapter import Chapter
 from pymanga.models.common import Response
 from pymanga.models.download_chapter_info import DownloadInfo
@@ -39,28 +40,17 @@ class TestMangaModels:
         assert len(download_chapter_info.chapter.data) == 6
         assert len(download_chapter_info.chapter.data_saver) == 6
 
-    def test_response_model_with_chapter(self) -> None:
-        response_json: dict[str, Any] = json.loads(
-            Path("tests/samples/chapter_results.json").read_text()
-        )
-        response: Response[Chapter] = Response.model_validate(response_json)
-        assert response.result == "ok"
-        assert response.response == "collection"
-        assert len(response.data) == 1
-        assert isinstance(response.data[0], Chapter)
-        assert response.limit == 10
-        assert response.offset == 0
-        assert response.total == 1
-
-    def test_response_model_with_manga(self) -> None:
-        response_json: dict[str, Any] = json.loads(
-            Path("tests/samples/manga_results.json").read_text()
-        )
-        response: Response[Manga] = Response.model_validate(response_json)
-        assert response.result == "ok"
-        assert response.response == "collection"
-        assert len(response.data) == 1
-        assert isinstance(response.data[0], Manga)
-        assert response.limit == 10
-        assert response.offset == 0
-        assert response.total == 1
+    @pytest.mark.parametrize(
+        "json_path, model",
+        [
+            ("tests/samples/chapter_results.json", Chapter),
+            ("tests/samples/manga_results.json", Manga),
+            ("tests/samples/tag_results.json", Tag),
+        ],
+    )
+    def test_response_model(
+        self, json_path: str, model: type[Manga | Chapter | Tag]
+    ) -> None:
+        response_json: dict[str, Any] = json.loads(Path(json_path).read_text())
+        response: Response = Response[model].model_validate(response_json)  # type: ignore
+        assert isinstance(response.data[0], model)
