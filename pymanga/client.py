@@ -91,8 +91,9 @@ class Client:
         offset: int = response.offset + response.limit
         tasks: list[Coroutine] = []
         while response.total > offset:
-            new_params: dict[str, Any] = params.copy()
-            tasks.append(self._call(f"/manga", new_params, model=Manga))
+            tasks.append(
+                self._call(f"/manga", dict(params, offset=offset), model=Manga)
+            )
             offset += response.limit
         responses: list[Response[Manga]] = await asyncio.gather(*tasks)
         for response in responses:
@@ -114,6 +115,8 @@ class Client:
         params: dict[str, Any] = {
             "manga": manga_id,
             "translatedLanguage[]": translated_language,
+            "includeExternalUrl": 0,
+            "order[chapter]": "asc",
         }
         chapters: list[Chapter] = []
         response: Response[Chapter] = await self._call(
@@ -123,8 +126,9 @@ class Client:
         offset: int = response.offset + response.limit
         tasks: list[Coroutine] = []
         while response.total > offset:
-            new_params: dict[str, Any] = params.copy()
-            tasks.append(self._call(f"/chapter", new_params, model=Chapter))
+            tasks.append(
+                self._call(f"/chapter", dict(params, offset=offset), model=Chapter)
+            )
             offset += response.limit
         responses: list[Response[Chapter]] = await asyncio.gather(*tasks)
         for response in responses:

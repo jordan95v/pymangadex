@@ -66,7 +66,7 @@ class Attributes(BaseModel):
     alt_titles: list[dict[str, str]] = Field(..., alias="altTitles")
     description: Description
     is_locked: bool = Field(..., alias="isLocked")
-    links: Links
+    links: Links | None = None
     original_language: str = Field(..., alias="originalLanguage")
     last_volume: str | None = Field(..., alias="lastVolume")
     last_chapter: str | None = Field(..., alias="lastChapter")
@@ -85,7 +85,7 @@ class Attributes(BaseModel):
     available_translated_languages: list[str | None] = Field(
         ..., alias="availableTranslatedLanguages"
     )
-    latest_uploaded_chapter: str = Field(..., alias="latestUploadedChapter")
+    latest_uploaded_chapter: str | None = Field(..., alias="latestUploadedChapter")
 
 
 class Relationship(BaseModel):
