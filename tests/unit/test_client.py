@@ -57,4 +57,19 @@ class TestClient:
         mangas: list[Manga] = await client.get_mangas(
             "Jujutsu Kaisen offered me some a+ combat in s2"
         )
-        assert len(mangas) == 11
+        assert len(mangas) == 2
+
+    async def test_get_chapters(self, client: Client, mocker: MockerFixture) -> None:
+        first_response: Response[Chapter] = Response[Chapter].model_validate(
+            json.loads(Path("tests/samples/chapter_results.json").read_text())
+        )
+        second_response: Response[Chapter] = Response[Chapter].model_validate(
+            json.loads(Path("tests/samples/chapter_second_results.json").read_text())
+        )
+        mocker.patch.object(
+            client, "_call", side_effect=[first_response, second_response]
+        )
+        chapters: list[Chapter] = await client.get_chapters(
+            "Jujutsu Kaisen offered me some a+ combat in s2", "en"
+        )
+        assert len(chapters) == 2

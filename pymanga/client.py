@@ -1,6 +1,7 @@
+import asyncio
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Coroutine
 from urllib.parse import urljoin
 import httpx
 from pymanga.models.chapter import Chapter
@@ -83,10 +84,47 @@ class Client:
             "excludedTags[]": tags.excluded if tags else [],
         }
         mangas: list[Manga] = []
-        response: Response[Manga] = await self._call(f"manga/", params, model=Manga)
+        response: Response[Manga] = await self._call(f"/manga", params, model=Manga)
         mangas.extend(response.data)
-        while response.total > response.offset + response.limit:
-            params["offset"] = response.offset + response.limit
-            response = await self._call(f"manga/", params, model=Manga)
+        offset: int = response.offset + response.limit
+        tasks: list[Coroutine] = []
+        while response.total > offset:
+            new_params: dict[str, Any] = params.copy()
+            tasks.append(self._call(f"/manga", new_params, model=Manga))
+            offset += response.limit
+        responses: list[Response[Manga]] = await asyncio.gather(*tasks)
+        for response in responses:
             mangas.extend(response.data)
         return mangas
+
+    async def get_chapters(
+        self, manga_id: str, translated_language: str
+    ) -> list[Chapter]:
+        """Retrieves chapters from the MangaDex API.
+
+        Args:
+            manga_id: The id of the manga.
+
+        Returns:
+            A list of chapters from the manga.
+        """
+
+        params: dict[str, Any] = {
+            "manga": manga_id,
+            "translatedLanguage[]": translated_language,
+        }
+        chapters: list[Chapter] = []
+        response: Response[Chapter] = await self._call(
+            f"/chapter", params, model=Chapter
+        )
+        chapters.extend(response.data)
+        offset: int = response.offset + response.limit
+        tasks: list[Coroutine] = []
+        while response.total > offset:
+            new_params: dict[str, Any] = params.copy()
+            tasks.append(self._call(f"/chapter", new_params, model=Chapter))
+            offset += response.limit
+        responses: list[Response[Chapter]] = await asyncio.gather(*tasks)
+        for response in responses:
+            chapters.extend(response.data)
+        return chapters

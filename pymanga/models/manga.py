@@ -82,7 +82,7 @@ class Attributes(BaseModel):
     created_at: str = Field(..., alias="createdAt")
     updated_at: str = Field(..., alias="updatedAt")
     version: int
-    available_translated_languages: list[str] = Field(
+    available_translated_languages: list[str | None] = Field(
         ..., alias="availableTranslatedLanguages"
     )
     latest_uploaded_chapter: str = Field(..., alias="latestUploadedChapter")
