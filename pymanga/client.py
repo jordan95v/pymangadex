@@ -4,8 +4,10 @@ from pathlib import Path
 from typing import Any, Coroutine
 from urllib.parse import urljoin
 import httpx
+from pydantic import BaseModel
 from pymanga.models.chapter import Chapter
 from pymanga.models.common import Response
+from pymanga.models.download_chapter_info import DownloadInfo
 from pymanga.models.manga import Manga, Tag
 
 
@@ -22,7 +24,7 @@ class Client:
     session: httpx.AsyncClient = httpx.AsyncClient()
 
     async def _call(
-        self, url: str, params: dict[str, Any], *, model: type[Manga | Chapter | Tag]
+        self, url: str, params: dict[str, Any], *, model: type[BaseModel]
     ) -> Response:
         """Calls the MangaDex API.
 
@@ -128,3 +130,18 @@ class Client:
         for response in responses:
             chapters.extend(response.data)
         return chapters
+
+    async def get_chapter_download_info(self, chapter_id: str) -> DownloadInfo:
+        """Retrieves the download information for a chapter.
+
+        Args:
+            chapter_id: The id of the chapter.
+
+        Returns:
+            The download information for the chapter.
+        """
+
+        full_url: str = urljoin(self.base_url, f"/at-home/server/{chapter_id}")
+        response: httpx.Response = await self.session.get(full_url)
+        response.raise_for_status()
+        return DownloadInfo.model_validate(response.json())

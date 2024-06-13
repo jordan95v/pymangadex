@@ -7,6 +7,7 @@ from conftest import FakeResponse
 from pymanga.client import Client, SearchTags
 from pymanga.models.chapter import Chapter
 from pymanga.models.common import Response
+from pymanga.models.download_chapter_info import DownloadInfo
 from pymanga.models.manga import Manga, Tag
 
 
@@ -73,3 +74,13 @@ class TestClient:
             "Jujutsu Kaisen offered me some a+ combat in s2", "en"
         )
         assert len(chapters) == 2
+
+    async def test_get_download_info(
+        self, client: Client, mocker: MockerFixture
+    ) -> None:
+        json_data: dict[str, Any] = json.loads(
+            Path("tests/samples/download_chapter_info.json").read_text()
+        )
+        mocker.patch.object(client.session, "get", return_value=FakeResponse(json_data))
+        result: DownloadInfo = await client.get_chapter_download_info("any")
+        assert isinstance(result, DownloadInfo)
