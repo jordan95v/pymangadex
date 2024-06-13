@@ -15,6 +15,7 @@ def client() -> Client:
 @dataclass
 class FakeResponse:
     json_data: dict[str, str]
+    content: bytes
 
     def json(self) -> dict[str, str]:
         return self.json_data

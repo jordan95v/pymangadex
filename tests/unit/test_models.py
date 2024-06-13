@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
 from typing import Any
+import httpx
 import pytest
+from pytest_mock import MockerFixture
+from conftest import FakeResponse
 from pymanga.models.manga import Manga, Tag
 from pymanga.models.chapter import Chapter
 from pymanga.models.common import Response
@@ -39,6 +42,21 @@ class TestMangaModels:
         assert download_chapter_info.chapter.hash == "3303dd03ac8d27452cce3f2a882e94b2"
         assert len(download_chapter_info.chapter.data) == 6
         assert len(download_chapter_info.chapter.data_saver) == 6
+
+    @pytest.mark.asyncio
+    async def test_download_chapter_info_model_download(
+        self, tmp_path: Path, mocker: MockerFixture
+    ) -> None:
+        mocker.patch(
+            "httpx.AsyncClient.get", return_value=FakeResponse(dict(), b"fake")
+        )
+        download_chapter_info_json: DownloadInfo = DownloadInfo.model_validate(
+            json.loads(Path("tests/samples/download_chapter_info.json").read_text())
+        )
+        await download_chapter_info_json.download(
+            tmp_path, "chapter_name", httpx.AsyncClient()
+        )
+        assert len(list(tmp_path.iterdir())) == 1
 
     @pytest.mark.parametrize(
         "json_path, model",

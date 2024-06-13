@@ -29,7 +29,9 @@ class TestClient:
         model: type[Manga | Chapter | Tag],
     ) -> None:
         json_data: dict[str, Any] = json.loads(Path(json_path).read_text())
-        mocker.patch.object(client.session, "get", return_value=FakeResponse(json_data))
+        mocker.patch.object(
+            client.session, "get", return_value=FakeResponse(json_data, b"")
+        )
         result: Response = await client._call("any", dict(), model=model)
         assert isinstance(result, Response)
         assert isinstance(result.data[0], model)
@@ -81,6 +83,8 @@ class TestClient:
         json_data: dict[str, Any] = json.loads(
             Path("tests/samples/download_chapter_info.json").read_text()
         )
-        mocker.patch.object(client.session, "get", return_value=FakeResponse(json_data))
+        mocker.patch.object(
+            client.session, "get", return_value=FakeResponse(json_data, b"")
+        )
         result: DownloadInfo = await client.get_chapter_download_info("any")
         assert isinstance(result, DownloadInfo)
