@@ -68,11 +68,11 @@ class Attributes(BaseModel):
     is_locked: bool = Field(..., alias="isLocked")
     links: Links
     original_language: str = Field(..., alias="originalLanguage")
-    last_volume: str = Field(..., alias="lastVolume")
-    last_chapter: str = Field(..., alias="lastChapter")
+    last_volume: str | None = Field(..., alias="lastVolume")
+    last_chapter: str | None = Field(..., alias="lastChapter")
     publication_demographic: str | None = Field(..., alias="publicationDemographic")
     status: str
-    year: int
+    year: int | None = None
     content_rating: str = Field(..., alias="contentRating")
     tags: list[Tag]
     state: str

@@ -1,0 +1,1269 @@
+{
+    "result": "ok",
+    "response": "collection",
+    "data": [
+        {
+            "id": "9f9780ca-68e1-472b-a6c5-caa8156b5d41",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "Naruto: Road to Ninja"
+                },
+                "altTitles": [
+                    {
+                        "en": "ROAD TO NINJA -NARUTO THE MOVIE-"
+                    },
+                    {
+                        "ru": "Фильм 9: Путь Наруто"
+                    }
+                ],
+                "description": {
+                    "en": "ROAD TO NINJA NARUTO THE MOVIE The new shocking movie Naruto fans from all over the world have been waiting for. MOVIE 9: ROAD TO NARUTO THE MOVIE A special one-shot connected to the movie!? Read the manga, watch the movie and find the connections!!"
+                },
+                "isLocked": false,
+                "links": {
+                    "al": "70549",
+                    "ap": "road-to-naruto-the-movie",
+                    "kt": "20349",
+                    "mal": "40549"
+                },
+                "originalLanguage": "ja",
+                "lastVolume": null,
+                "lastChapter": null,
+                "publicationDemographic": "shounen",
+                "status": "completed",
+                "year": 2012,
+                "contentRating": "safe",
+                "tags": [
+                    {
+                        "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Oneshot"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Action"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Comedy"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "87cc87cd-a395-47af-b27a-93258283bbc6",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Adventure"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "cdc58593-87dd-415e-bbc0-2ec27bf404cc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Fantasy"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2019-10-19T03:12:45+00:00",
+                "updatedAt": "2023-07-20T19:46:04+00:00",
+                "version": 3,
+                "availableTranslatedLanguages": [
+                    "en",
+                    "ru",
+                    "pt-br",
+                    "ro"
+                ],
+                "latestUploadedChapter": "3acae4e9-cece-4ee5-b791-5795f77aa9e0"
+            },
+            "relationships": [
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "author"
+                },
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "artist"
+                },
+                {
+                    "id": "79843bec-7951-4fe5-a3ce-684acc982ef5",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
+                    "type": "manga",
+                    "related": "same_franchise"
+                }
+            ]
+        },
+        {
+            "id": "2de08c73-36c3-49ba-a375-a4089d5d8834",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "Naruto - The Sun (Doujinshi)"
+                },
+                "altTitles": [
+                    {
+                        "ja": "NARUTO ―ナルト― - 太陽 (Doujinshi)"
+                    },
+                    {
+                        "ja-ro": "NARUTO ―ナルト― - Taiyou (Doujinshi)"
+                    }
+                ],
+                "description": {},
+                "isLocked": false,
+                "links": {
+                    "mu": "ilaig1b"
+                },
+                "originalLanguage": "ja",
+                "lastVolume": null,
+                "lastChapter": null,
+                "publicationDemographic": null,
+                "status": "completed",
+                "year": 2001,
+                "contentRating": "safe",
+                "tags": [
+                    {
+                        "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Oneshot"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "5920b825-4181-4a17-beeb-9918b0ff7a30",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Boys' Love"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Doujinshi"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2020-06-02T09:20:33+00:00",
+                "updatedAt": "2024-02-25T01:23:56+00:00",
+                "version": 5,
+                "availableTranslatedLanguages": [
+                    "it",
+                    "en"
+                ],
+                "latestUploadedChapter": "a8f5ef79-f231-4150-8129-872a01fa1418"
+            },
+            "relationships": [
+                {
+                    "id": "db3a8ef5-4764-49ef-9078-4730df839639",
+                    "type": "author"
+                },
+                {
+                    "id": "df565389-6e68-4294-9d7b-d67f36b82b43",
+                    "type": "author"
+                },
+                {
+                    "id": "d314a18e-36df-41a4-97a3-abbe648c142f",
+                    "type": "artist"
+                },
+                {
+                    "id": "df565389-6e68-4294-9d7b-d67f36b82b43",
+                    "type": "artist"
+                },
+                {
+                    "id": "b7250564-d5a0-45bc-a6a0-c17fb125c0f8",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
+                    "type": "manga",
+                    "related": "based_on"
+                }
+            ]
+        },
+        {
+            "id": "c7b0826d-d6bc-4867-baf8-d2a5bc3c778a",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "NARUTO Reborn! (Doujinshi)"
+                },
+                "altTitles": [],
+                "description": {
+                    "en": "After facing off the last of the Otsutsuki clan members a forbidden seal activates on the last descendant’s body sending Naruto back into the past before his change began. Naruto is back in the academy with a few days remaining before the academy graduation exam. Naruto now has the opportunity to relive either as a loser who became the hero or awaken as a reborn genius that surpassed all his peers and changes the future."
+                },
+                "isLocked": false,
+                "links": {
+                    "engtl": "https://read.babelwuxia.com/manga/naruto-the-seventh-hokage-reborn/"
+                },
+                "originalLanguage": "en",
+                "lastVolume": "",
+                "lastChapter": "",
+                "publicationDemographic": null,
+                "status": "ongoing",
+                "year": 2023,
+                "contentRating": "safe",
+                "tags": [
+                    {
+                        "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Action"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "423e2eae-a7a2-4a8b-ac03-a8351462d71d",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Romance"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "489dd859-9b61-4c37-af75-5b18e88daafc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Ninja"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Comedy"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Martial Arts"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "87cc87cd-a395-47af-b27a-93258283bbc6",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Adventure"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Doujinshi"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Drama"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "cdc58593-87dd-415e-bbc0-2ec27bf404cc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Fantasy"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2023-06-26T11:24:05+00:00",
+                "updatedAt": "2023-07-17T00:32:36+00:00",
+                "version": 5,
+                "availableTranslatedLanguages": [
+                    "en"
+                ],
+                "latestUploadedChapter": "7ffb9157-5f9f-4f8f-93ae-bbeaf372aa90"
+            },
+            "relationships": [
+                {
+                    "id": "852295be-33b2-4304-a7ee-7cfa5ab05c72",
+                    "type": "author"
+                },
+                {
+                    "id": "852295be-33b2-4304-a7ee-7cfa5ab05c72",
+                    "type": "artist"
+                },
+                {
+                    "id": "34dedd7f-05b3-4a8a-8ce9-f2c5c6ccd0de",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
+                    "type": "manga",
+                    "related": "based_on"
+                },
+                {
+                    "id": "bec83389-7c62-4a33-8e37-77248738e0a3",
+                    "type": "creator"
+                }
+            ]
+        },
+        {
+            "id": "54667339-618b-49bd-bad5-6910bf64861c",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "Dragon Ball Shippuden"
+                },
+                "altTitles": [
+                    {
+                        "en": "DBS"
+                    },
+                    {
+                        "en": "Dragon Ball Crossroads"
+                    },
+                    {
+                        "en": "Dragonball Before Shippuden"
+                    },
+                    {
+                        "en": "Naruto Crossroads"
+                    }
+                ],
+                "description": {
+                    "en": "SonGoku is stuck in the narutoverse"
+                },
+                "isLocked": false,
+                "links": {},
+                "originalLanguage": "fr",
+                "lastVolume": null,
+                "lastChapter": null,
+                "publicationDemographic": null,
+                "status": "ongoing",
+                "year": null,
+                "contentRating": "suggestive",
+                "tags": [
+                    {
+                        "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Action"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "489dd859-9b61-4c37-af75-5b18e88daafc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Ninja"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Martial Arts"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "891cf039-b895-47f0-9229-bef4c96eccd4",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Self-Published"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "ace04997-f6bd-436e-b261-779182193d3d",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Isekai"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Doujinshi"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2020-12-02T03:58:12+00:00",
+                "updatedAt": "2024-05-15T03:29:03+00:00",
+                "version": 3,
+                "availableTranslatedLanguages": [
+                    "en"
+                ],
+                "latestUploadedChapter": "8aabc394-1968-4916-91c7-d61fe0fc56af"
+            },
+            "relationships": [
+                {
+                    "id": "26adc6a3-f62d-4ddf-8217-dd8151e25fc8",
+                    "type": "author"
+                },
+                {
+                    "id": "26adc6a3-f62d-4ddf-8217-dd8151e25fc8",
+                    "type": "artist"
+                },
+                {
+                    "id": "ba6e88e2-eee5-4f8b-84c9-35bf1e28eefa",
+                    "type": "cover_art"
+                }
+            ]
+        },
+        {
+            "id": "36e32ff7-255a-4e23-9cb7-5c2b1f687c38",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "Naruto - Far Away from the Praire (doujinshi)"
+                },
+                "altTitles": [
+                    {
+                        "ja-ro": "Naruto - Kouya Kara Tooku Hanarete (doujinshi)"
+                    }
+                ],
+                "description": {
+                    "en": "Pairing: Haku x Zabuza"
+                },
+                "isLocked": false,
+                "links": {
+                    "mu": "aphj9f7"
+                },
+                "originalLanguage": "ja",
+                "lastVolume": "",
+                "lastChapter": "",
+                "publicationDemographic": null,
+                "status": "completed",
+                "year": null,
+                "contentRating": "suggestive",
+                "tags": [
+                    {
+                        "id": "5920b825-4181-4a17-beeb-9918b0ff7a30",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Boys' Love"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "b13b2a48-c720-44a9-9c77-39c9979373fb",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Doujinshi"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2023-10-26T14:40:23+00:00",
+                "updatedAt": "2023-10-26T14:41:39+00:00",
+                "version": 2,
+                "availableTranslatedLanguages": [
+                    "en"
+                ],
+                "latestUploadedChapter": "748120c3-2da6-4376-ae57-02e6c66cbbc2"
+            },
+            "relationships": [
+                {
+                    "id": "108e7313-6656-45b6-aa49-0ca6b9f166e8",
+                    "type": "author"
+                },
+                {
+                    "id": "108e7313-6656-45b6-aa49-0ca6b9f166e8",
+                    "type": "artist"
+                },
+                {
+                    "id": "871a3a04-66de-454e-bc62-6fe55ad52489",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "40c1db62-5606-46fa-9f22-e8834093fb09",
+                    "type": "creator"
+                }
+            ]
+        },
+        {
+            "id": "d5e0431b-3410-4bbe-a147-4ce50fb21bd6",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "Naruto: The Whorl within the Spiral"
+                },
+                "altTitles": [
+                    {
+                        "ja": "NARUTO外伝 渦の中のつむじ風"
+                    },
+                    {
+                        "ja-ro": "Naruto Gaiden: Uzu no Naka no Tsumujikaze"
+                    },
+                    {
+                        "th": "นินจาคาถาโอ้โฮเฮะ-ภาคพิเศษ 〜พายุหมุนในวังวน〜"
+                    },
+                    {
+                        "es": "NARUTO - Historia especial: El remolino en el vórtice"
+                    },
+                    {
+                        "id": "NARUTO - Naruto Gaiden: Angin Puyuh di Pusaran Air"
+                    },
+                    {
+                        "pt-br": "Naruto Gaiden: O Turbilhão no Redemoinho"
+                    },
+                    {
+                        "fr": "Naruto Gaiden : la spirale au cœur du tourbillon"
+                    },
+                    {
+                        "uk": "Наруто: Витоки зі спіралі"
+                    }
+                ],
+                "description": {
+                    "en": "The story of Namikaze Minato (Fourth Hokage), the winner of the world-wide popularity poll project--NARUTOP99! Just how exactly did Minato, the father of Naruto, develop a certain jutsu...?",
+                    "uk": "Історія Намікадзе Мінато (Четвертого Хокаґе), переможця всесвітнього опитування популярності персонажів - NARUTOP99! Як саме Мінато, батько Наруто, розвинув певне джюцу...?"
+                },
+                "isLocked": false,
+                "links": {
+                    "al": "165485",
+                    "mu": "6fr5bem",
+                    "mal": "160710",
+                    "engtl": "https://mangaplus.shueisha.co.jp/titles/100258"
+                },
+                "originalLanguage": "ja",
+                "lastVolume": "",
+                "lastChapter": "",
+                "publicationDemographic": "shounen",
+                "status": "completed",
+                "year": 2023,
+                "contentRating": "safe",
+                "tags": [
+                    {
+                        "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Oneshot"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "489dd859-9b61-4c37-af75-5b18e88daafc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Ninja"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2023-06-28T09:02:04+00:00",
+                "updatedAt": "2023-08-25T11:18:42+00:00",
+                "version": 11,
+                "availableTranslatedLanguages": [
+                    "it",
+                    "pt-br",
+                    "hi",
+                    "de",
+                    "uk",
+                    "ro",
+                    "vi"
+                ],
+                "latestUploadedChapter": "a7fa91cc-2e21-4e52-a3d4-8b7088db966b"
+            },
+            "relationships": [
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "author"
+                },
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "artist"
+                },
+                {
+                    "id": "1f3cf959-e981-4c1d-a7a4-93e99f31aa20",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
+                    "type": "manga",
+                    "related": "main_story"
+                },
+                {
+                    "id": "fb03ae91-2304-4a1f-b9e2-6b5ba3313138",
+                    "type": "creator"
+                }
+            ]
+        },
+        {
+            "id": "ffeefb3b-04a2-4b8e-9159-e131cfe078ed",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "Naruto: Konoha's Story—The Steam Ninja Scrolls: The Manga"
+                },
+                "altTitles": [
+                    {
+                        "ja": "NARUTO-ナルト-　木ノ葉新伝 湯煙忍法帖"
+                    },
+                    {
+                        "ja-ro": "Naruto - Konoha Shinden Yukemuri Ninpou-jou"
+                    },
+                    {
+                        "pt-br": "Naruto - A Verdadeira História da Folha: Pergaminhos Ninjas das Fontes Termais"
+                    },
+                    {
+                        "id": "Naruto: Kisah Konoha—Gulungan Ninja Uap"
+                    }
+                ],
+                "description": {
+                    "en": "The Naruto spin-off novel is now a manga series! The retired Kakashi and Guy head to a hot springs in the Land of Hot Water with their bodyguard, Sarutobi Mirai! A story connecting two generations through the power of bonds!",
+                    "id": "Novel spin-off Naruto sekarang menjadi seri manga!  Pensiunan Kakashi dan Guy menuju ke mata air panas di Negeri Uap dengan pengawal mereka, Sarutobi Mirai!  Sebuah kisah yang menghubungkan dua generasi melalui kekuatan ikatan!",
+                    "pt-br": "O romance spin-off de Naruto agora é uma série de mangá! Os aposentados Kakashi e Guy vão para uma fonte termal no País do Vapor com sua guarda-costas, Sarutobi Mirai! Uma história que conecta duas gerações através do poder dos laços!"
+                },
+                "isLocked": false,
+                "links": {
+                    "al": "142846",
+                    "bw": "series/415631/list",
+                    "mal": "153000",
+                    "raw": "https://shonenjumpplus.com/episode/316190246913848541",
+                    "engtl": "https://mangaplus.shueisha.co.jp/titles/100213"
+                },
+                "originalLanguage": "ja",
+                "lastVolume": "2",
+                "lastChapter": "15",
+                "publicationDemographic": "shounen",
+                "status": "completed",
+                "year": 2022,
+                "contentRating": "safe",
+                "tags": [
+                    {
+                        "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Action"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "489dd859-9b61-4c37-af75-5b18e88daafc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Ninja"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "799c202e-7daa-44eb-9cf7-8a3c0441531e",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Martial Arts"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "87cc87cd-a395-47af-b27a-93258283bbc6",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Adventure"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Drama"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2022-10-30T07:08:49+00:00",
+                "updatedAt": "2024-04-13T14:16:37+00:00",
+                "version": 13,
+                "availableTranslatedLanguages": [
+                    "id",
+                    "pt-br",
+                    "tr"
+                ],
+                "latestUploadedChapter": "5fdffc92-09e5-404b-905e-b4728ecf8707"
+            },
+            "relationships": [
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "author"
+                },
+                {
+                    "id": "d4f74ba3-46eb-467a-bd4b-252a951240c8",
+                    "type": "author"
+                },
+                {
+                    "id": "8f8e6364-232f-4cc5-87f8-46733b6c5cfe",
+                    "type": "artist"
+                },
+                {
+                    "id": "b5305bfb-d98b-41fb-8f93-a9823705ebc9",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
+                    "type": "manga",
+                    "related": "main_story"
+                },
+                {
+                    "id": "5690663d-d01a-4451-b899-f17bc0211f84",
+                    "type": "creator"
+                }
+            ]
+        },
+        {
+            "id": "24bb1d05-c9d9-4ac6-a368-facad7d9bc34",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "The Sasuke Uchiha Sharingan Chronicles"
+                },
+                "altTitles": [
+                    {
+                        "en": "Naruto: Chibi Sasuke's Sharingan Legend"
+                    },
+                    {
+                        "ja": "うちはサスケの写輪眼伝"
+                    },
+                    {
+                        "pt-br": "Sasuke SD"
+                    },
+                    {
+                        "ja-ro": "Uchiha Sasuke no Sharingan Den"
+                    }
+                ],
+                "description": {
+                    "en": "The series, drawn in \"SD\" style, stars Sasuke Uchiha and shows the humorous side of him and Taka.",
+                    "pt-br": "O rival de Naruto, mais bonito do que você já viu antes!\n\nSasuke Uchiha, o lobo solitário que fará de tudo para vingar seu clã e matar seu irmão mais velho… Sim, esta é a história dele, mas com uma reviravolta hilária! Em Naruto: Chibi Sasuke Sharingan Legend, os personagens e a história foram completamente transformadas por uma questão de comédia! Com seus companheiros da Equipe Taka, Suigetsu, Karin e Jugo, Sasuke viaja por todos os lados e entra em todos os tipos de aventuras malucas. Este é um lado de Sasuke que você nunca viu antes. Um conselho: não subestime os Uchihas!"
+                },
+                "isLocked": false,
+                "links": {
+                    "bw": "series/52085",
+                    "mu": "113534",
+                    "ebj": "https://ebookjapan.yahoo.co.jp/books/327569/",
+                    "mal": "77273",
+                    "engtl": "https://www.viz.com/shonenjump/chapters/naruto-chibi-sasukes-sharingan-l"
+                },
+                "originalLanguage": "ja",
+                "lastVolume": "3",
+                "lastChapter": "24",
+                "publicationDemographic": "shounen",
+                "status": "completed",
+                "year": 2014,
+                "contentRating": "safe",
+                "tags": [
+                    {
+                        "id": "391b0423-d847-456f-aff0-8b0cfc03066b",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Action"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "489dd859-9b61-4c37-af75-5b18e88daafc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Ninja"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "4d32cc48-9f00-4cca-9b5a-a839f0764984",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Comedy"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "87cc87cd-a395-47af-b27a-93258283bbc6",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Adventure"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "cdc58593-87dd-415e-bbc0-2ec27bf404cc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Fantasy"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2020-08-06T22:53:34+00:00",
+                "updatedAt": "2024-05-01T22:32:04+00:00",
+                "version": 4,
+                "availableTranslatedLanguages": [
+                    "pt-br",
+                    "ro"
+                ],
+                "latestUploadedChapter": "7a9f0987-1417-4108-8cbe-7b8625601a3f"
+            },
+            "relationships": [
+                {
+                    "id": "77fec942-1b1c-438f-969c-75a931b40b2c",
+                    "type": "author"
+                },
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "author"
+                },
+                {
+                    "id": "77fec942-1b1c-438f-969c-75a931b40b2c",
+                    "type": "artist"
+                },
+                {
+                    "id": "66e3094a-a102-4fd1-b1ac-10792925d828",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
+                    "type": "manga",
+                    "related": "adapted_from"
+                }
+            ]
+        },
+        {
+            "id": "4e494979-ed04-4263-9426-133240fc8e12",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "Naruto: Rin no Sho - Konoha Gaiden: Ichiraku nite…"
+                },
+                "altTitles": [
+                    {
+                        "en": "Konoha Side Story: At the Ichiraku…"
+                    },
+                    {
+                        "ja": "木ノ葉外伝:一楽にて…。"
+                    },
+                    {
+                        "ja-ro": "Konoha Gaiden: Ichiraku nite…"
+                    }
+                ],
+                "description": {
+                    "en": "Konoha Side Story: At the Ichiraku… is a manga-omake included with the Rin no Sho."
+                },
+                "isLocked": false,
+                "links": {},
+                "originalLanguage": "ja",
+                "lastVolume": "",
+                "lastChapter": "",
+                "publicationDemographic": "shounen",
+                "status": "completed",
+                "year": 2002,
+                "contentRating": "safe",
+                "tags": [
+                    {
+                        "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Oneshot"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "489dd859-9b61-4c37-af75-5b18e88daafc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Ninja"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "cdc58593-87dd-415e-bbc0-2ec27bf404cc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Fantasy"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2023-07-23T18:18:28+00:00",
+                "updatedAt": "2023-07-23T18:18:39+00:00",
+                "version": 2,
+                "availableTranslatedLanguages": [
+                    "fi"
+                ],
+                "latestUploadedChapter": "4047dc2e-1b56-4e6b-a2e8-8e82e130db0d"
+            },
+            "relationships": [
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "author"
+                },
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "artist"
+                },
+                {
+                    "id": "8a41dfca-a1d8-417b-9424-30d10cfe7ebc",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
+                    "type": "manga",
+                    "related": "main_story"
+                },
+                {
+                    "id": "f319d314-4310-4610-bcea-98c0128def1d",
+                    "type": "creator"
+                }
+            ]
+        },
+        {
+            "id": "69423cb0-f99d-4d93-8fd3-f01bed85970a",
+            "type": "manga",
+            "attributes": {
+                "title": {
+                    "en": "NARUTO: Tokubetsu Bangai-hen - After The Last"
+                },
+                "altTitles": [
+                    {
+                        "ja": "NARUTO–ナルト–特別番外編~After THE LAST~"
+                    },
+                    {
+                        "en": "NARUTO Special Extra Chapter: After The Last"
+                    },
+                    {
+                        "ja": "NARUTO -ナルト- 秘伝・列の書 オフィシャルムービーガイドBOOK"
+                    },
+                    {
+                        "en": "NARUTO Hiden: Retsu no Sho - Official Movie Guidebook"
+                    }
+                ],
+                "description": {
+                    "en": "By checking Sai's books about proper human interaction, Naruto learns that men are supposed to pay for everything on a date. When he takes Hinata out to a restaurant, however, he is intimidated by how expensive the food is.\n\nThis entry is an omake chapter set after the events of The Last: Naruto the Movie which is included with the Retsu no Sho official movie guidebook\n\nIts English translation is included with limited edition copies of The Last."
+                },
+                "isLocked": false,
+                "links": {
+                    "al": "121172"
+                },
+                "originalLanguage": "ja",
+                "lastVolume": "",
+                "lastChapter": "",
+                "publicationDemographic": "shounen",
+                "status": "completed",
+                "year": 2014,
+                "contentRating": "safe",
+                "tags": [
+                    {
+                        "id": "0234a31e-a729-4e28-9d6a-3f87c4966b9e",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Oneshot"
+                            },
+                            "description": {},
+                            "group": "format",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "489dd859-9b61-4c37-af75-5b18e88daafc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Ninja"
+                            },
+                            "description": {},
+                            "group": "theme",
+                            "version": 1
+                        },
+                        "relationships": []
+                    },
+                    {
+                        "id": "cdc58593-87dd-415e-bbc0-2ec27bf404cc",
+                        "type": "tag",
+                        "attributes": {
+                            "name": {
+                                "en": "Fantasy"
+                            },
+                            "description": {},
+                            "group": "genre",
+                            "version": 1
+                        },
+                        "relationships": []
+                    }
+                ],
+                "state": "published",
+                "chapterNumbersResetOnNewVolume": false,
+                "createdAt": "2023-07-20T12:52:07+00:00",
+                "updatedAt": "2023-07-20T12:54:22+00:00",
+                "version": 2,
+                "availableTranslatedLanguages": [
+                    "en",
+                    "pt-br"
+                ],
+                "latestUploadedChapter": "61b309c3-493a-432a-8563-d3de3fcdac8a"
+            },
+            "relationships": [
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "author"
+                },
+                {
+                    "id": "7f718dfa-e5be-45ea-a5cb-0fcd3ed52d5f",
+                    "type": "artist"
+                },
+                {
+                    "id": "f976375d-abfa-4b33-acdc-6160400fa410",
+                    "type": "cover_art"
+                },
+                {
+                    "id": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
+                    "type": "manga",
+                    "related": "based_on"
+                },
+                {
+                    "id": "f319d314-4310-4610-bcea-98c0128def1d",
+                    "type": "creator"
+                }
+            ]
+        }
+    ],
+    "limit": 10,
+    "offset": 10,
+    "total": 20
+}
