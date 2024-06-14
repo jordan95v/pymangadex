@@ -50,6 +50,9 @@ you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --from-chapter 1 
 
 # Download all french chapters of Jujutsu Kaisen
 you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --language fr
+
+# Download all chapters of Jujutsu Kaisen in the ./jjk folder
+you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --output ./jjk
 ```
 
 ## Error handling
