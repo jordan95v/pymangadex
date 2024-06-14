@@ -5,6 +5,7 @@ from typing import Any, Coroutine
 from urllib.parse import urljoin
 import httpx
 from pydantic import BaseModel
+from pymanga.exception import MangadexClientError
 from pymanga.models.chapter import Chapter
 from pymanga.models.common import Response
 from pymanga.models.download_chapter_info import DownloadInfo
@@ -21,7 +22,9 @@ class SearchTags:
 class Client:
     base_url: str
     output: Path
-    session: httpx.AsyncClient = httpx.AsyncClient()
+    session: httpx.AsyncClient = httpx.AsyncClient(
+        transport=httpx.AsyncHTTPTransport(retries=3)
+    )
 
     async def _call(
         self, url: str, params: dict[str, Any], *, model: type[BaseModel]
@@ -37,8 +40,11 @@ class Client:
         """
 
         full_url: str = urljoin(self.base_url, url)
-        response: httpx.Response = await self.session.get(full_url, params=params)
-        response.raise_for_status()
+        try:
+            response: httpx.Response = await self.session.get(full_url, params=params)
+            response.raise_for_status()
+        except httpx.HTTPError as e:
+            raise MangadexClientError(e) from e
         return Response[model].model_validate(response.json())  # type: ignore
 
     async def get_tags(
@@ -146,6 +152,9 @@ class Client:
         """
 
         full_url: str = urljoin(self.base_url, f"/at-home/server/{chapter_id}")
-        response: httpx.Response = await self.session.get(full_url)
-        response.raise_for_status()
+        try:
+            response: httpx.Response = await self.session.get(full_url)
+            response.raise_for_status()
+        except httpx.HTTPError as e:
+            raise MangadexClientError(e) from e
         return DownloadInfo.model_validate(response.json())

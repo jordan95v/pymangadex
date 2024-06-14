@@ -1,6 +1,8 @@
 <h1>pymanga</h1>
 
-pymanga is a command-line tool to download manga from mangadex.
+pymanga is a command-line tool to download manga from mangadex.<br>
+It download manga in the form of a `.cbz` file, which is a comic book archive file.<br>
+This is usefull if you got a e-reader or a tablet and you want to read manga on it.
 
 
 # Installation
@@ -37,7 +39,38 @@ you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen"
 
 # Download chapters 1 to 10 of Jujutsu Kaisen
 you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --from-chapter 1 --to-chapter 10
+
+# Download all french chapters of Jujutsu Kaisen
+you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --language fr
 ```
+
+## Error handling
+
+The package raises the `MangadexClientError` when an error occurs while interacting with the mangadex API.
+
+```python
+from pymanga.exceptions import MangadexClientError
+
+try:
+    # Do something
+except MangadexClientError as e:
+    print(e)
+```
+
+# Contributing
+
+Contributions to `pymanga` are welcome! If you encounter any issues or have suggestions for improvements, please open an issue on the project's GitHub repository.<br>
+Before submitting a pull request, make sure to run the tests and ensure that your changes do not break the existing functionality. Add tests for any new features or fixes you introduce.
+
+# License
+
+`pymanga` is open-source software released under the [MIT License](https://opensource.org/license/mit/). Feel free to use, modify, and distribute it according to the terms of the license.
+
+# Acknowledgements
+
+This project was developed by [jordan95v](https://github.com/jordan95v).<br>
+I would like to thank the Mangadex team for providing a powerful and comprehensive API, be sure to download only if you intend to read the manga and not to stockpile it and the books unread.
+
 
 <h1>Thanks for reading.</h1>
 

@@ -1,10 +1,12 @@
 import json
 from pathlib import Path
 from typing import Any
+import httpx
 import pytest
 from pytest_mock import MockerFixture
 from conftest import FakeResponse
 from pymanga.client import Client, SearchTags
+from pymanga.exception import MangadexClientError
 from pymanga.models.chapter import Chapter
 from pymanga.models.common import Response
 from pymanga.models.download_chapter_info import DownloadInfo
@@ -35,6 +37,11 @@ class TestClient:
         result: Response = await client._call("any", dict(), model=model)
         assert isinstance(result, Response)
         assert isinstance(result.data[0], model)
+
+    async def test__call_error(self, client: Client, mocker: MockerFixture) -> None:
+        mocker.patch.object(client.session, "get", side_effect=httpx.HTTPError("fake"))
+        with pytest.raises(MangadexClientError):
+            await client._call("any", dict(), model=Manga)
 
     async def test_get_tags(self, client: Client, mocker: MockerFixture) -> None:
         response: Response[Tag] = Response[Tag].model_validate(
@@ -88,3 +95,10 @@ class TestClient:
         )
         result: DownloadInfo = await client.get_chapter_download_info("any")
         assert isinstance(result, DownloadInfo)
+
+    async def test_get_download_info_error(
+        self, client: Client, mocker: MockerFixture
+    ) -> None:
+        mocker.patch.object(client.session, "get", side_effect=httpx.HTTPError("fake"))
+        with pytest.raises(MangadexClientError):
+            await client.get_chapter_download_info("any")
