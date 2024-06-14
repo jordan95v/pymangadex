@@ -11,12 +11,17 @@ app: typer.Typer = typer.Typer()
 
 
 async def _download_manga(
-    manga_name: str, from_chapter: int | None, to_chapter: int | None, output: Path
+    manga_name: str,
+    language: str,
+    from_chapter: int | None,
+    to_chapter: int | None,
+    output: Path,
 ) -> None:
     """Download a manga from mangadex.
 
     Args:
         manga_name: The name of the manga to download.
+        language: The language of the manga.
         from_chapter: The chapter to start downloading from.
         to_chapter: The chapter to stop downloading at.
         output: The output directory to save the manga.
@@ -36,7 +41,7 @@ async def _download_manga(
     except IndexError:
         print("Invalid index, please enter a valid index.")
         return
-    chapters: list[Chapter] = await client.get_chapters(choosen_manga.id, "en")
+    chapters: list[Chapter] = await client.get_chapters(choosen_manga.id, language)
     if from_chapter is not None:
         chapters = chapters[from_chapter - 1 :]
     if to_chapter is not None:
@@ -44,8 +49,8 @@ async def _download_manga(
     for chapter in chapters:
         download_info: DownloadInfo = await client.get_chapter_download_info(chapter.id)
         chapter_name: str = (
-            f"{chapter.attributes.chapter} - {choosen_manga.attributes.title['en']} "
-            f"- {chapter.attributes.title}"
+            f"{chapter.attributes.chapter} - {choosen_manga.attributes.title["en"]}"
+            f" -{chapter.attributes.title}"
         )
         print(f"Downloading | {chapter_name}...")
         await download_info.download(client.output, chapter_name, client.session)
@@ -56,6 +61,7 @@ def download(
     manga_name: Annotated[
         str, typer.Argument(help="The name of the manga to download")
     ],
+    language: Annotated[str, typer.Option(help="The language of the manga")] = "en",
     from_chapter: Annotated[
         Optional[int], typer.Option(help="The chapter to start downloading from")
     ] = None,
@@ -68,7 +74,7 @@ def download(
 ) -> None:
     """Download a manga from mangadex."""
 
-    asyncio.run(_download_manga(manga_name, from_chapter, to_chapter, output))
+    asyncio.run(_download_manga(manga_name, language, from_chapter, to_chapter, output))
 
 
 if __name__ == "__main__":

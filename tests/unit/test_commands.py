@@ -17,7 +17,7 @@ class TestCommands:
         download_mock: MagicMock = mocker.patch("pymanga.__main__._download_manga")
         download("Jujustu Kaisen")
         download_mock.assert_called_once_with(
-            "Jujustu Kaisen", None, None, Path("output")
+            "Jujustu Kaisen", "en", None, None, Path("output")
         )
 
     @pytest.mark.asyncio
@@ -57,6 +57,6 @@ class TestCommands:
         mocker.patch("builtins.input", return_value=input_value)
         download_mock: MagicMock = mocker.patch.object(DownloadInfo, "download")
         await _download_manga(
-            "Jujustu Kaisen", from_chapter, to_chapter, Path("output")
+            "Jujustu Kaisen", "en", from_chapter, to_chapter, Path("output")
         )
         assert download_mock.call_count == expected_call_count
