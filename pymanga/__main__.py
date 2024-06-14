@@ -2,7 +2,6 @@ import asyncio
 from pathlib import Path
 from typing import Annotated, Optional
 import typer
-
 from pymanga.client import Client
 from pymanga.models.chapter import Chapter
 from pymanga.models.download_chapter_info import DownloadInfo
@@ -12,15 +11,31 @@ app: typer.Typer = typer.Typer()
 
 
 async def _download_manga(
-    manga_name: str, from_chapter: int | None, to_chapter: int | None
+    manga_name: str, from_chapter: int | None, to_chapter: int | None, output: Path
 ) -> None:
-    client: Client = Client(base_url="https://api.mangadex.org", output=Path("output"))
+    """Download a manga from mangadex.
+
+    Args:
+        manga_name: The name of the manga to download.
+        from_chapter: The chapter to start downloading from.
+        to_chapter: The chapter to stop downloading at.
+        output: The output directory to save the manga.
+    """
+
+    client: Client = Client(base_url="https://api.mangadex.org", output=output)
     mangas: list[Manga] = await client.get_mangas(manga_name)
     print(f"Found {len(mangas)} mangas, choose one to download:")
     for i, manga in enumerate(mangas):
         print(f"{i + 1}. {manga.attributes.title['en']}")
-    manga_index: int = int(input("Enter the index of the manga: ")) - 1
-    choosen_manga: Manga = mangas[manga_index]
+    try:
+        manga_index: int = int(input("Enter the index of the manga: ")) - 1
+        choosen_manga: Manga = mangas[manga_index]
+    except ValueError:
+        print("Invalid input, please enter a number.")
+        return
+    except IndexError:
+        print("Invalid index, please enter a valid index.")
+        return
     chapters: list[Chapter] = await client.get_chapters(choosen_manga.id, "en")
     if from_chapter is not None:
         chapters = chapters[from_chapter - 1 :]
@@ -47,11 +62,14 @@ def download(
     to_chapter: Annotated[
         Optional[int], typer.Option(help="The chapter to stop downloading at")
     ] = None,
+    output: Annotated[
+        Path, typer.Option(help="The output directory to save the manga")
+    ] = Path("output"),
 ) -> None:
-    """Download a manga from MangaDex."""
+    """Download a manga from mangadex."""
 
-    asyncio.run(_download_manga(manga_name, from_chapter, to_chapter))
+    asyncio.run(_download_manga(manga_name, from_chapter, to_chapter, output))
 
 
 if __name__ == "__main__":
-    app()
+    app()  # pragma: no cover

@@ -26,7 +26,7 @@ class Client:
     async def _call(
         self, url: str, params: dict[str, Any], *, model: type[BaseModel]
     ) -> Response:
-        """Calls the MangaDex API.
+        """Calls the mangadex API.
 
         Args:
             url: The URL to concatenate with the base URL.
@@ -44,7 +44,7 @@ class Client:
     async def get_tags(
         self, included_tags: list[str], excluded_tags: list[str]
     ) -> SearchTags:
-        """Retrieves tags from the MangaDex API.
+        """Retrieves tags from the mangadex API.
 
         Args:
             included_tags: The list of tags to include.
@@ -70,7 +70,7 @@ class Client:
     async def get_mangas(
         self, title: str, tags: SearchTags | None = None
     ) -> list[Manga]:
-        """Retrieves mangas from the MangaDex API.
+        """Retrieves mangas from the mangadex API.
 
         Args:
             title: The title of the manga.
@@ -103,7 +103,7 @@ class Client:
     async def get_chapters(
         self, manga_id: str, translated_language: str
     ) -> list[Chapter]:
-        """Retrieves chapters from the MangaDex API.
+        """Retrieves chapters from the mangadex API.
 
         Args:
             manga_id: The id of the manga.

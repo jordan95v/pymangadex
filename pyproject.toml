@@ -50,6 +50,5 @@ addopts = "-vv --tb=short --cov=pymanga --cov-report=term-missing"
 [tool.coverage.report]
 omit = [
     "tests/*",
-    "**/__main__.py",
     "**/__init__.py",
 ]
