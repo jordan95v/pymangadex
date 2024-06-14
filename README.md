@@ -1,5 +1,8 @@
 <h1>pymanga</h1>
 
+pymanga is a command-line tool to download manga from mangadex.
+
+
 # Installation
 
 To install pymanga, simply run:

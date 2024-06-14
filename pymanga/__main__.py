@@ -49,7 +49,7 @@ async def _download_manga(
     for chapter in chapters:
         download_info: DownloadInfo = await client.get_chapter_download_info(chapter.id)
         chapter_name: str = (
-            f"{chapter.attributes.chapter} - {choosen_manga.attributes.title["en"]}"
+            f"{chapter.attributes.chapter} - {choosen_manga.attributes.title['en']}"
             f" -{chapter.attributes.title}"
         )
         print(f"Downloading | {chapter_name}...")
