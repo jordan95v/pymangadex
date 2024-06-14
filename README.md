@@ -4,6 +4,14 @@ pymanga is a command-line tool to download manga from mangadex.<br>
 It download manga in the form of a `.cbz` file, which is a comic book archive file.<br>
 This is usefull if you got a e-reader or a tablet and you want to read manga on it.
 
+<h1>Table of content</h1>
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Error handling](#error-handling)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 # Installation
 
