@@ -2,7 +2,7 @@ import asyncio
 from pathlib import Path
 from typing import Annotated, Optional
 import typer
-from pymanga.client import Client
+from pymanga.client import Client, SearchTags
 from pymanga.models.chapter import Chapter
 from pymanga.models.download_chapter_info import DownloadInfo
 from pymanga.models.manga import Manga
@@ -15,6 +15,8 @@ async def _download_manga(
     language: str,
     from_chapter: int | None,
     to_chapter: int | None,
+    included_tags: list[str],
+    excluded_tags: list[str],
     output: Path,
 ) -> None:
     """Download a manga from mangadex.
@@ -28,7 +30,10 @@ async def _download_manga(
     """
 
     client: Client = Client(base_url="https://api.mangadex.org", output=output)
-    mangas: list[Manga] = await client.get_mangas(manga_name)
+    search_tags: SearchTags | None = None
+    if len(included_tags) or len(excluded_tags):
+        search_tags = await client.get_tags(included_tags, excluded_tags)
+    mangas: list[Manga] = await client.get_mangas(manga_name, search_tags)
     print(f"Found {len(mangas)} mangas, choose one to download:")
     for i, manga in enumerate(mangas):
         print(f"{i + 1}. {manga.attributes.title['en']}")
@@ -68,13 +73,29 @@ def download(
     to_chapter: Annotated[
         Optional[int], typer.Option(help="The chapter to stop downloading at")
     ] = None,
+    included_tags: Annotated[
+        Optional[str], typer.Option(help="The tags to include in the search query")
+    ] = "",
+    excluded_tags: Annotated[
+        Optional[str], typer.Option(help="The tags to exclude in the search query")
+    ] = "",
     output: Annotated[
         Path, typer.Option(help="The output directory to save the manga")
     ] = Path("output"),
 ) -> None:
     """Download a manga from mangadex."""
 
-    asyncio.run(_download_manga(manga_name, language, from_chapter, to_chapter, output))
+    asyncio.run(
+        _download_manga(
+            manga_name,
+            language,
+            from_chapter,
+            to_chapter,
+            included_tags.split(",") if included_tags else [],
+            excluded_tags.split(",") if excluded_tags else [],
+            output,
+        )
+    )
 
 
 if __name__ == "__main__":

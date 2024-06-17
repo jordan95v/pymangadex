@@ -1,0 +1,9 @@
+services:
+  app:
+    image: python:3.12
+    container_name: python-dev
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: /bin/bash
+    tty: true
