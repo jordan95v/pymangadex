@@ -17,6 +17,7 @@ async def _download_manga(
     to_chapter: int | None,
     included_tags: list[str],
     excluded_tags: list[str],
+    content_rating: list[str],
     output: Path,
 ) -> None:
     """Download a manga from mangadex.
@@ -26,6 +27,9 @@ async def _download_manga(
         language: The language of the manga.
         from_chapter: The chapter to start downloading from.
         to_chapter: The chapter to stop downloading at.
+        included_tags: The tags to include in the search query.
+        excluded_tags: The tags to exclude in the search query.
+        content_rating: The content rating of the manga.
         output: The output directory to save the manga.
     """
 
@@ -33,7 +37,9 @@ async def _download_manga(
     search_tags: SearchTags | None = None
     if len(included_tags) or len(excluded_tags):
         search_tags = await client.get_tags(included_tags, excluded_tags)
-    mangas: list[Manga] = await client.get_mangas(manga_name, search_tags)
+    mangas: list[Manga] = await client.get_mangas(
+        manga_name, search_tags, content_rating
+    )
     print(f"Found {len(mangas)} mangas, choose one to download:")
     for i, manga in enumerate(mangas):
         print(f"{i + 1}. {manga.attributes.title['en']}")
@@ -79,6 +85,9 @@ def download(
     excluded_tags: Annotated[
         Optional[str], typer.Option(help="The tags to exclude in the search query")
     ] = "",
+    content_rating: Annotated[
+        Optional[str], typer.Option(help="The content rating of the manga")
+    ] = "",
     output: Annotated[
         Path, typer.Option(help="The output directory to save the manga")
     ] = Path("output"),
@@ -93,6 +102,7 @@ def download(
             to_chapter,
             included_tags.split(",") if included_tags else [],
             excluded_tags.split(",") if excluded_tags else [],
+            content_rating.split(",") if content_rating else [],
             output,
         )
     )

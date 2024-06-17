@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from typing import Any
+from unittest.mock import MagicMock
 import httpx
 import pytest
 from pytest_mock import MockerFixture
@@ -68,6 +69,37 @@ class TestClient:
             "Jujutsu Kaisen offered me some a+ combat in s2"
         )
         assert len(mangas) == 2
+
+    @pytest.mark.parametrize(
+        "content_rating",
+        [
+            ["safe"],
+            ["suggestive"],
+            [],
+        ],
+    )
+    async def test_get_mangas_content_rating(
+        self, client: Client, mocker: MockerFixture, content_rating: list[str]
+    ) -> None:
+        response: Response[Manga] = Response[Manga].model_validate(
+            json.loads(Path("tests/samples/manga_results.json").read_text())
+        )
+        _call_mock: MagicMock = mocker.patch.object(
+            client, "_call", return_value=response
+        )
+        await client.get_mangas(
+            "Jujutsu Kaisen offered me some a+ combat in s2",
+            content_rating=content_rating,
+        )
+        checked_params: dict[str, Any] = {
+            "title": "Jujutsu Kaisen offered me some a+ combat in s2",
+            "includedTags[]": [],
+            "excludedTags[]": [],
+            "offset": 1,
+        }
+        if len(content_rating):
+            checked_params["contentRating[]"] = content_rating
+        _call_mock.assert_called_with("/manga", checked_params, model=Manga)
 
     async def test_get_chapters(self, client: Client, mocker: MockerFixture) -> None:
         first_response: Response[Chapter] = Response[Chapter].model_validate(

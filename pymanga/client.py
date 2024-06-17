@@ -74,7 +74,10 @@ class Client:
         return SearchTags(included, excluded)
 
     async def get_mangas(
-        self, title: str, tags: SearchTags | None = None
+        self,
+        title: str,
+        tags: SearchTags | None = None,
+        content_rating: list[str] | None = None,
     ) -> list[Manga]:
         """Retrieves mangas from the mangadex API.
 
@@ -91,6 +94,8 @@ class Client:
             "includedTags[]": tags.included if tags else [],
             "excludedTags[]": tags.excluded if tags else [],
         }
+        if content_rating:
+            params["contentRating[]"] = content_rating
         mangas: list[Manga] = []
         response: Response[Manga] = await self._call(f"/manga", params, model=Manga)
         mangas.extend(response.data)

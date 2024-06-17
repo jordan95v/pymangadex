@@ -53,6 +53,12 @@ you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --language fr
 
 # Download all chapters of Jujutsu Kaisen in the ./jjk folder
 you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --output ./jjk
+
+# Download all chapters of Jujutsu Kaisen, but search for mangas with included tags "action" and "shounen", and exclude mangas with tags "yaoi" and "yuri"
+you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --included-tags action,shounen --excluded-tags yaoi,yuri
+
+# Download all chapters of Jujutsu Kaisen, but search for mangas with content rating "safe" and "suggestive"
+you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --content-rating safe,suggestive
 ```
 
 ## Error handling
