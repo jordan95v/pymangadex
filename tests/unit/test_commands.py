@@ -20,6 +20,12 @@ class TestCommands:
             "Jujustu Kaisen", "en", None, None, [], [], [], Path("./output")
         )
 
+    def test_download_command_no_mangas(self, mocker: MockerFixture) -> None:
+        mocker.patch.object(Client, "get_mangas", return_value=[])
+        download_mock: MagicMock = mocker.patch("pymanga.__main__.print")
+        download("Jujustu Kaisen")
+        download_mock.assert_called_once_with("No mangas found.")
+
     @pytest.mark.asyncio
     @pytest.mark.parametrize(
         "input_value, expected_call_count, from_chapter, to_chapter",

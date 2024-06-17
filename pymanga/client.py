@@ -84,6 +84,7 @@ class Client:
         Args:
             title: The title of the manga.
             tags: The included and excluded tags to filter the search. Defaults to None.
+            content_rating: The content rating of the manga. Defaults to None.
 
         Returns:
             A list of mangas that match the title and tags.

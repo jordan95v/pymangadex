@@ -40,6 +40,9 @@ async def _download_manga(
     mangas: list[Manga] = await client.get_mangas(
         manga_name, search_tags, content_rating
     )
+    if not mangas:
+        print("No mangas found.")
+        return
     print(f"Found {len(mangas)} mangas, choose one to download:")
     for i, manga in enumerate(mangas):
         print(f"{i + 1}. {manga.attributes.title['en']}")
