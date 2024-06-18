@@ -45,7 +45,9 @@ async def _download_manga(
         return
     print(f"Found {len(mangas)} mangas, choose one to download:")
     for i, manga in enumerate(mangas):
-        print(f"{i + 1}. {manga.attributes.title['en']}")
+        if manga.attributes.title.get("en") is None:
+            continue
+        print(f"{i + 1}. {manga.attributes.title.get('en')}")
     try:
         manga_index: int = int(input("Enter the index of the manga: ")) - 1
         choosen_manga: Manga = mangas[manga_index]
@@ -60,10 +62,13 @@ async def _download_manga(
         chapters = chapters[from_chapter - 1 :]
     if to_chapter is not None:
         chapters = chapters[: to_chapter - 1]
+    if not chapters:
+        print("No chapters found.")
+        return
     for chapter in chapters:
         download_info: DownloadInfo = await client.get_chapter_download_info(chapter.id)
         chapter_name: str = (
-            f"{chapter.attributes.chapter} - {choosen_manga.attributes.title['en']}"
+            f"{chapter.attributes.chapter} - {choosen_manga.attributes.title.get('en')}"
             f" -{chapter.attributes.title}"
         )
         print(f"Downloading | {chapter_name}...")

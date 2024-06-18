@@ -26,6 +26,18 @@ class TestCommands:
         download("Jujustu Kaisen")
         download_mock.assert_called_once_with("No mangas found.")
 
+    def test_download_command_no_chapters(self, mocker: MockerFixture) -> None:
+        mangas_json: dict[str, Any] = json.loads(
+            Path("tests/samples/manga_results.json").read_text()
+        )
+        mangas: list[Manga] = Response[Manga].model_validate(mangas_json).data
+        mocker.patch.object(Client, "get_mangas", return_value=mangas)
+        mocker.patch.object(Client, "get_chapters", return_value=[])
+        mocker.patch("builtins.input", return_value=1)
+        download_mock: MagicMock = mocker.patch("pymanga.__main__.print")
+        download("Jujustu Kaisen")
+        download_mock.assert_called_with("No chapters found.")
+
     @pytest.mark.asyncio
     @pytest.mark.parametrize(
         "input_value, expected_call_count, from_chapter, to_chapter",
