@@ -1,6 +1,8 @@
+import asyncio
 import json
 from pathlib import Path
 from typing import Any
+from unittest.mock import MagicMock
 import httpx
 import pytest
 from pytest_mock import MockerFixture
@@ -44,6 +46,29 @@ class TestMangaModels:
         assert len(download_chapter_info.chapter.data_saver) == 6
 
     @pytest.mark.asyncio
+    @pytest.mark.parametrize("throwable", [None, httpx.HTTPError])
+    async def test__download_chapter_info_model_download(
+        self, tmp_path: Path, mocker: MockerFixture, throwable: type[Exception] | None
+    ) -> None:
+        if throwable:
+            mocker.patch.object(
+                httpx.AsyncClient, "get", side_effect=throwable("fake_error")
+            )
+        else:
+            mocker.patch.object(
+                httpx.AsyncClient, "get", return_value=FakeResponse(dict(), b"fake")
+            )
+        download_chapter_info_json: DownloadInfo = DownloadInfo.model_validate(
+            json.loads(Path("tests/samples/download_chapter_info.json").read_text())
+        )
+        semaphore: asyncio.Semaphore = asyncio.Semaphore(5)
+        await download_chapter_info_json._download(
+            "https://api.mangadex.org", httpx.AsyncClient(), tmp_path, semaphore
+        )
+        expected_len: int = 0 if throwable else 1
+        assert len(list(tmp_path.iterdir())) == expected_len
+
+    @pytest.mark.asyncio
     async def test_download_chapter_info_model_download(
         self, tmp_path: Path, mocker: MockerFixture
     ) -> None:
@@ -53,9 +78,13 @@ class TestMangaModels:
         download_chapter_info_json: DownloadInfo = DownloadInfo.model_validate(
             json.loads(Path("tests/samples/download_chapter_info.json").read_text())
         )
+        download_mock: MagicMock = mocker.patch.object(
+            download_chapter_info_json, "_download"
+        )
         await download_chapter_info_json.download(
             tmp_path, "chapter_name", httpx.AsyncClient()
         )
+        assert download_mock.call_count == len(download_chapter_info_json.chapter.data)
         assert len(list(tmp_path.iterdir())) == 1
 
     @pytest.mark.parametrize(

@@ -8,7 +8,7 @@ __all__: list[str] = ["Chapter", "Attributes", "Relationship"]
 class Attributes(BaseModel):
     volume: str | None = None
     chapter: str | None = None
-    title: str
+    title: str | None = None
     translated_language: str = Field(..., alias="translatedLanguage")
     external_url: Any = Field(..., alias="externalUrl")
     publish_at: str = Field(..., alias="publishAt")
