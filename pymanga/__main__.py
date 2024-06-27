@@ -19,6 +19,7 @@ async def _download_manga(
     excluded_tags: list[str],
     content_rating: list[str],
     output: Path,
+    data_saver: bool,
 ) -> None:
     """Download a manga from mangadex.
 
@@ -31,6 +32,7 @@ async def _download_manga(
         excluded_tags: The tags to exclude in the search query.
         content_rating: The content rating of the manga.
         output: The output directory to save the manga.
+        data_saver: Use data saver mode to download the manga.
     """
 
     client: Client = Client(base_url="https://api.mangadex.org", output=output)
@@ -57,7 +59,9 @@ async def _download_manga(
     except IndexError:
         print("Invalid index, please enter a valid index.")
         return
-    chapters: list[Chapter] = await client.get_chapters(choosen_manga.id, language)
+    chapters: list[Chapter] = await client.get_chapters(
+        choosen_manga.id, language, content_rating
+    )
     if from_chapter is not None:
         chapters = chapters[from_chapter - 1 :]
     if to_chapter is not None:
@@ -71,7 +75,8 @@ async def _download_manga(
             f"{chapter.attributes.chapter} - {choosen_manga.attributes.title.get('en')}"
             f" -{chapter.attributes.title}"
         )
-        print(f"Downloading | {chapter_name}...")
+        chapter_name = chapter_name.replace(".", ",").replace("/", ",")
+        print(f"Downloading | {chapter_name}")
         await download_info.download(client.output, chapter_name, client.session)
 
 
@@ -99,6 +104,9 @@ def download(
     output: Annotated[
         Path, typer.Option(help="The output directory to save the manga")
     ] = Path("output"),
+    data_saver: Annotated[
+        bool, typer.Option(help="Use data saver mode to download the manga")
+    ] = False,
 ) -> None:
     """Download a manga from mangadex."""
 
@@ -112,6 +120,7 @@ def download(
             excluded_tags.split(",") if excluded_tags else [],
             content_rating.split(",") if content_rating else [],
             output,
+            data_saver,
         )
     )
 

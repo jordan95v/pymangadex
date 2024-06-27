@@ -116,6 +116,30 @@ class TestClient:
         )
         assert len(chapters) == 2
 
+    async def test_get_chapters_content_rating(
+        self, client: Client, mocker: MockerFixture
+    ) -> None:
+        response: Response[Chapter] = Response[Chapter].model_validate(
+            json.loads(Path("tests/samples/chapter_results.json").read_text())
+        )
+        _call_mock: MagicMock = mocker.patch.object(
+            client, "_call", return_value=response
+        )
+        await client.get_chapters(
+            "Jujutsu Kaisen offered me some a+ combat in s2",
+            "en",
+            content_rating=["safe"],
+        )
+        checked_params: dict[str, Any] = {
+            "manga": "Jujutsu Kaisen offered me some a+ combat in s2",
+            "includeExternalUrl": 0,
+            "order[chapter]": "asc",
+            "translatedLanguage[]": "en",
+            "offset": 1,
+            "contentRating[]": ["safe"],
+        }
+        _call_mock.assert_called_with("/chapter", checked_params, model=Chapter)
+
     async def test_get_download_info(
         self, client: Client, mocker: MockerFixture
     ) -> None:

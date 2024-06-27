@@ -58,33 +58,53 @@ class TestMangaModels:
             mocker.patch.object(
                 httpx.AsyncClient, "get", return_value=FakeResponse(dict(), b"fake")
             )
-        download_chapter_info_json: DownloadInfo = DownloadInfo.model_validate(
+        download_chapter_info: DownloadInfo = DownloadInfo.model_validate(
             json.loads(Path("tests/samples/download_chapter_info.json").read_text())
         )
         semaphore: asyncio.Semaphore = asyncio.Semaphore(5)
-        await download_chapter_info_json._download(
+        await download_chapter_info._download(
             "https://api.mangadex.org", httpx.AsyncClient(), tmp_path, semaphore
         )
         expected_len: int = 0 if throwable else 1
         assert len(list(tmp_path.iterdir())) == expected_len
 
     @pytest.mark.asyncio
+    @pytest.mark.parametrize("data_saver", [False, True])
     async def test_download_chapter_info_model_download(
-        self, tmp_path: Path, mocker: MockerFixture
+        self, tmp_path: Path, mocker: MockerFixture, data_saver: bool
     ) -> None:
         mocker.patch(
             "httpx.AsyncClient.get", return_value=FakeResponse(dict(), b"fake")
         )
-        download_chapter_info_json: DownloadInfo = DownloadInfo.model_validate(
+        download_chapter_info: DownloadInfo = DownloadInfo.model_validate(
             json.loads(Path("tests/samples/download_chapter_info.json").read_text())
         )
         download_mock: MagicMock = mocker.patch.object(
-            download_chapter_info_json, "_download"
+            download_chapter_info, "_download"
         )
-        await download_chapter_info_json.download(
-            tmp_path, "chapter_name", httpx.AsyncClient()
+        client: httpx.AsyncClient = httpx.AsyncClient()
+        await download_chapter_info.download(
+            tmp_path, "chapter_name", client, data_saver
         )
-        assert download_mock.call_count == len(download_chapter_info_json.chapter.data)
+        assert download_mock.call_count == len(
+            download_chapter_info.chapter.data
+            if not data_saver
+            else download_chapter_info.chapter.data_saver
+        )
+        urls: list[str] = (
+            download_chapter_info.chapter.data
+            if not data_saver
+            else download_chapter_info.chapter.data_saver
+        )
+        for url in urls:
+            download_mock.assert_any_call(
+                f"{download_chapter_info.base_url}/"
+                f"{'data' if not data_saver else 'data-saver'}/"
+                f"{download_chapter_info.chapter.hash}/{url}",
+                client,
+                mocker.ANY,
+                mocker.ANY,
+            )
         assert len(list(tmp_path.iterdir())) == 1
 
     @pytest.mark.parametrize(

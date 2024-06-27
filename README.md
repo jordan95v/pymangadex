@@ -59,6 +59,9 @@ you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --included-tags a
 
 # Download all chapters of Jujutsu Kaisen, but search for mangas with content rating "safe" and "suggestive"
 you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --content-rating safe,suggestive
+
+# Download all chapters of Jujutsu Kaisen, but download data saver images
+you@yourmachine:~$ python -m pymanga download "Jujutsu Kaisen" --data-saver
 ```
 
 ## Error handling

@@ -113,7 +113,10 @@ class Client:
         return mangas
 
     async def get_chapters(
-        self, manga_id: str, translated_language: str
+        self,
+        manga_id: str,
+        translated_language: str,
+        content_rating: list[str] | None = None,
     ) -> list[Chapter]:
         """Retrieves chapters from the mangadex API.
 
@@ -126,10 +129,12 @@ class Client:
 
         params: dict[str, Any] = {
             "manga": manga_id,
-            "translatedLanguage[]": translated_language,
             "includeExternalUrl": 0,
             "order[chapter]": "asc",
+            "translatedLanguage[]": translated_language,
         }
+        if content_rating:
+            params["contentRating[]"] = content_rating
         chapters: list[Chapter] = []
         response: Response[Chapter] = await self._call(
             f"/chapter", params, model=Chapter
