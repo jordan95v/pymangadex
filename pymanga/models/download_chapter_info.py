@@ -5,6 +5,7 @@ import shutil
 import tempfile
 import httpx
 from pydantic import BaseModel, Field
+from pymanga.exception import DownloadImageError
 
 __all__: list[str] = ["Chapter", "DownloadInfo"]
 
@@ -43,7 +44,7 @@ class DownloadInfo(BaseModel):
                 response.raise_for_status()
             except httpx.HTTPError as e:
                 print(f"Failed to download {url}: {e}")
-                return
+                raise DownloadImageError(f"Failed to download {url}")
             tmp_file: Path = tmp_dir / url.split("/")[-1]
             tmp_file.write_bytes(response.content)
 

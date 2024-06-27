@@ -70,12 +70,15 @@ async def _download_manga(
         print("No chapters found.")
         return
     for chapter in chapters:
-        download_info: DownloadInfo = await client.get_chapter_download_info(chapter.id)
         chapter_name: str = (
             f"{chapter.attributes.chapter} - {choosen_manga.attributes.title.get('en')}"
             f" -{chapter.attributes.title}"
         )
         chapter_name = chapter_name.replace(".", ",").replace("/", ",")
+        if output.joinpath(chapter_name).with_suffix(".cbz").exists():
+            print(f"Skipping | {chapter_name}")
+            continue
+        download_info: DownloadInfo = await client.get_chapter_download_info(chapter.id)
         print(f"Downloading | {chapter_name}")
         await download_info.download(client.output, chapter_name, client.session)
 

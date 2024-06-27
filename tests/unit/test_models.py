@@ -7,6 +7,7 @@ import httpx
 import pytest
 from pytest_mock import MockerFixture
 from conftest import FakeResponse
+from pymanga.exception import DownloadImageError
 from pymanga.models.manga import Manga, Tag
 from pymanga.models.chapter import Chapter
 from pymanga.models.common import Response
@@ -62,6 +63,15 @@ class TestMangaModels:
             json.loads(Path("tests/samples/download_chapter_info.json").read_text())
         )
         semaphore: asyncio.Semaphore = asyncio.Semaphore(5)
+        if throwable:
+            with pytest.raises(DownloadImageError):
+                await download_chapter_info._download(
+                    "https://api.mangadex.org",
+                    httpx.AsyncClient(),
+                    tmp_path,
+                    semaphore,
+                )
+            return
         await download_chapter_info._download(
             "https://api.mangadex.org", httpx.AsyncClient(), tmp_path, semaphore
         )
